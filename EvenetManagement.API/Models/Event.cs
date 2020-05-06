@@ -17,10 +17,13 @@ namespace EvenetManagement.API.Models
 
         public string EventDescription { get; set; }
 
+        [BsonDateTimeOptions]
         public DateTime StartDate { get; set; }
+
+        [BsonDateTimeOptions]
         public DateTime EndDate { get; set; }
 
-        public string HostId { get; set; }
+
 
     }
 }

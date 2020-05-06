@@ -23,16 +23,29 @@ namespace EvenetManagement.API.Controllers
         [HttpPost(Name = "CreateEvent")]
         public ActionResult<Event> CreateEvent(Event eventData)
         {
-            var sampleEventData = new Event
-            {
-                EventName = "FirstEvent",
-                EventDescription = "FirstEvent-Description",
-                HostId = "1234",
-                StartDate = DateTime.Now,
-                EndDate = DateTime.Now.AddDays(2)
-            };
-            var createdEvent = _eventsService.Create(sampleEventData);
+            var createdEvent = _eventsService.CreateEvent(eventData);
             return Ok(createdEvent);
+        }
+
+        [HttpPost("session", Name = "AddNewSession")]
+        public ActionResult<Session> AddNewSession(Session sessionData)
+        {
+            var createdSession = _eventsService.CreateSession(sessionData);
+            return Ok(createdSession);
+        }
+
+        [HttpPost("session/attendee", Name = "AddAttendee")]
+        public IActionResult AddAttendee(string sessionId, string userId, string userName)
+        {
+            _eventsService.AddAttendee(sessionId, userId, userName);
+            return Ok();
+        }
+
+        [HttpPut("session/attendee/approve", Name = "ApproveAttendee")]
+        public IActionResult ApproveAttendee(string sessionId, string userId)
+        {
+            _eventsService.ApproveAttendee(sessionId, userId);
+            return Ok();
         }
 
         [HttpGet(Name = "GetAllEvents")]
@@ -40,6 +53,13 @@ namespace EvenetManagement.API.Controllers
         {
             var eventsFromService = _eventsService.Get();
             return Ok(eventsFromService);
+        }
+
+        [HttpGet("sessions", Name = "GetUserSessions")]
+        public IActionResult GetUserSessions(string userId)
+        {
+            var userSessions = _eventsService.GetUserSessions(userId);
+            return Ok(userSessions);
         }
     }
 }
