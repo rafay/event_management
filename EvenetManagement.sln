@@ -5,6 +5,27 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvenetManagement.API", "EvenetManagement.API\EvenetManagement.API.csproj", "{C53C3D9C-6A97-4D7A-8F0A-CCBEA44117AB}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "event-management-client", "EventManagement.Client\event-management-client\", "{71217776-517F-416A-8183-1F3D36CAE3C5}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_58363"
+		Debug.AspNetCompiler.PhysicalPath = "EventManagement.Client\event-management-client\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58363\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_58363"
+		Release.AspNetCompiler.PhysicalPath = "EventManagement.Client\event-management-client\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58363\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "58363"
+		SlnRelativePath = "EventManagement.Client\event-management-client\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +36,10 @@ Global
 		{C53C3D9C-6A97-4D7A-8F0A-CCBEA44117AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C53C3D9C-6A97-4D7A-8F0A-CCBEA44117AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C53C3D9C-6A97-4D7A-8F0A-CCBEA44117AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71217776-517F-416A-8183-1F3D36CAE3C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71217776-517F-416A-8183-1F3D36CAE3C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71217776-517F-416A-8183-1F3D36CAE3C5}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{71217776-517F-416A-8183-1F3D36CAE3C5}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,11 +6,14 @@ using EvenetManagement.API.Models;
 using EvenetManagement.API.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EvenetManagement.API.Controllers
 {
+    [Authorize]
     [Route("api/events")]
     [ApiController]
+    
     public class EventManagementController : ControllerBase
     {
         private readonly IEventsService _eventsService;
