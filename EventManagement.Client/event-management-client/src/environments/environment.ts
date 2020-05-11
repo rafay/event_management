@@ -3,10 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  SERVER_URL: '',
+  SERVER_URL: 'https://localhost:44330/',
   production: false,
   useHash: true,
   hmr: false,
+  scopeUri: ['api://988bbee6-d68f-4260-b139-9fbf502effe5/Events.Read.Write'],
+  tenantId: '7ec2fb67-c55a-4e8f-9d47-2336089fdc57',
+  uiClienId: '9f255814-3910-4ce0-b041-774fc448681d',
+  redirectUrl: 'http://localhost:4200'
 };
 
 /*

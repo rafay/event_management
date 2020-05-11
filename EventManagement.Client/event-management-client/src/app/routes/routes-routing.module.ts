@@ -1,28 +1,36 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { environment } from '@env/environment';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {environment} from '@env/environment';
 
-import { AdminLayoutComponent } from '../theme/admin-layout/admin-layout.component';
-import { AuthLayoutComponent } from '../theme/auth-layout/auth-layout.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './sessions/login/login.component';
-import { RegisterComponent } from './sessions/register/register.component';
+import {AdminLayoutComponent} from '../theme/admin-layout/admin-layout.component';
+import {AuthLayoutComponent} from '../theme/auth-layout/auth-layout.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {LoginComponent} from './sessions/login/login.component';
+import {RegisterComponent} from './sessions/register/register.component';
+import {MsalGuard} from '@azure/msal-angular';
+import {EventsComponent} from './events/events.component';
 
 const routes: Routes = [
   {
     path: '',
     component: AdminLayoutComponent,
+    canActivate: [MsalGuard],
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      {path: '', redirectTo: 'events', pathMatch: 'full'},
+      {
+        path: 'events',
+        component: EventsComponent,
+        data: {title: 'Events', titleI18n: 'events'},
+      },
       {
         path: 'dashboard',
         component: DashboardComponent,
-        data: { title: 'Dashboard', titleI18n: 'dashboard' },
+        data: {title: 'Dashboard', titleI18n: 'dashboard'},
       },
       {
         path: 'sessions',
         loadChildren: () => import('./sessions/sessions.module').then(m => m.SessionsModule),
-        data: { title: 'Sessions', titleI18n: 'Sessions' },
+        data: {title: 'Sessions', titleI18n: 'Sessions'},
       },
     ],
   },
@@ -33,16 +41,16 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent,
-        data: { title: 'Login', titleI18n: 'Login' },
+        data: {title: 'Login', titleI18n: 'Login'},
       },
       {
         path: 'register',
         component: RegisterComponent,
-        data: { title: 'Register', titleI18n: 'Register' },
+        data: {title: 'Register', titleI18n: 'Register'},
       },
     ],
   },
-  { path: '**', redirectTo: 'dashboard' },
+  {path: '**', redirectTo: 'dashboard'},
 ];
 
 @NgModule({
@@ -53,4 +61,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class RoutesRoutingModule {}
+export class RoutesRoutingModule {
+}
